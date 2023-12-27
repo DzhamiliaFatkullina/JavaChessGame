@@ -1,0 +1,13 @@
+To Do:
+    ChessFigure abstract class
+    6 figures
+    Coordinates class
+    player enum
+
+
+Stack exchange code:
+    why does it have getPath?
+
+
+Future improvements:
+    use stockfish to create single player game

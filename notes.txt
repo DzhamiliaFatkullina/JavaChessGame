@@ -1,2 +1,17 @@
+To Do:
+    piece - label (to which mouse listener is applied)
+                -> when pressed we know what piece is to be moved:  - check if the right player is playing
+                                                                    - piece is changes color
+
+                   when pressed to new coordinate: - check if move is valid -> move (piece is unclicked)
+                                                   - coordinate of piece is changed
+
+
+Future improvements:
+    - show who's move it is in the corner
+    - show possible moves when you select a piece
+
+
 Stack exchange code:
     why does it have getPath?
+
