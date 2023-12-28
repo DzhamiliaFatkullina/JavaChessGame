@@ -1,4 +1,5 @@
 package pieces;
+import game.Square;
 import players.PlayerType;
 
 import javax.imageio.ImageIO;
@@ -22,7 +23,9 @@ public abstract class Piece {
     public PlayerType getPlayerType() {
         return playerType;
     }
+    public abstract boolean isValidMove(Square initialSquare, Square finalSquare);
 
-    public abstract boolean isValidMove(Coordinate currentCoordinate, Coordinate newCoordinate);
-    public abstract BufferedImage getImage();
+    public boolean isMoveWithoutObstacle(Square initialSquare, Square finalSquare){
+        return true;
+    }
 }

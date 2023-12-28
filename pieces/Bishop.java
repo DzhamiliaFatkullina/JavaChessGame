@@ -1,5 +1,6 @@
 package pieces;
 
+import game.Square;
 import players.PlayerType;
 
 import javax.imageio.ImageIO;
@@ -14,21 +15,8 @@ public class Bishop extends Piece{
     }
 
     @Override
-    public boolean isValidMove(Coordinate currentCoordinate, Coordinate newCoordinate) {
+    public boolean isValidMove(Square initialSquare, Square finalSquare) {
         return false;
     }
 
-    @Override
-    public BufferedImage getImage() {
-        String let = "b";
-        if(playerType == PlayerType.WHITE) let = "w";
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(Objects.requireNonNull(
-                    getClass().getResourceAsStream("chess piece images v1.0/" + let + "-bishop" + ".png")));
-        } catch (IOException e) {
-            e.getMessage();
-        }
-        return image;
-    }
 }

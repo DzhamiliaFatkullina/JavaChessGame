@@ -1,3 +1,5 @@
+package game;
+
 import pieces.Coordinate;
 import pieces.Piece;
 

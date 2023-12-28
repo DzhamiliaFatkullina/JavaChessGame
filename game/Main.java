@@ -1,3 +1,5 @@
+package game;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -10,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Objects;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -27,11 +30,11 @@ public class Main {
         frame.setTitle("Chess game for two");
         frame.setLocationRelativeTo(null);
 
-        ChessWindow window = new ChessWindow(new Board().getSquares());
-        JPanel allButtons = window.getButtons();
+        ChessSetUp chessSetUp = new ChessSetUp(new Board().getSquares());
+        JPanel allButtons = chessSetUp.getButtons();
         frame.add(allButtons);
 
-        ImageIcon logo = new ImageIcon("OIP.jpg");
+        ImageIcon logo = new ImageIcon("game/OIP.jpg");
         frame.setIconImage(logo.getImage());
 
         frame.setVisible(true);
@@ -41,6 +44,9 @@ public class Main {
 class MyActionListener implements ActionListener {
 
     public void updateBoard(){
+        /*
+        updates the board representation after board has been updated
+         */
 
     }
     @Override
@@ -49,12 +55,12 @@ class MyActionListener implements ActionListener {
     }
 }
 
-class ChessWindow extends JButton {
+class ChessSetUp extends JButton {
     private final JPanel allButtons = new JPanel();
     public JPanel getButtons(){
         return allButtons;
     }
-    ChessWindow(Square[][] squares){
+    ChessSetUp(Square[][] squares){
         allButtons.setLayout(new GridLayout(8, 8));
         for (int i = 0; i < 8; i++) {
             for(int j = 0; j < 8; j++) {

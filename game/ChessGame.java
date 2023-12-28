@@ -1,3 +1,5 @@
+package game;
+
 import players.PlayerType;
 
 public class ChessGame {

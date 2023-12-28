@@ -1,3 +1,5 @@
+package game;
+
 import pieces.Bishop;
 import pieces.Coordinate;
 import pieces.King;
