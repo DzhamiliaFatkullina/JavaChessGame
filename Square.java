@@ -21,7 +21,7 @@ public class Square {
     public Piece getPiece() {
         return piece;
     }
-    public boolean isOccupied(Coordinate coordinate){
+    public boolean isOccupied(){
         if (piece == null) return false;
         return true;
     }

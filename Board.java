@@ -51,6 +51,10 @@ public class Board {
         }
     }
 
+    public Square[][] getSquares() {
+        return squares;
+    }
+
     public void update(){
         /*
         updated the board after valid move is made
