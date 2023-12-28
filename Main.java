@@ -1,4 +1,5 @@
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -18,19 +19,19 @@ public class Main {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        JPanel chessboard = new JPanel();
+        JButton chessboard = new JButton();
         chessboard.setLayout(new GridLayout(8, 8));
         frame.add(chessboard);
 
         for (int i = 0; i < 8; i++) {
             for(int j = 0; j < 8; j++) {
-                JPanel panel = new JPanel();
+                JButton button = new JButton();
                 if ((i + j) % 2 == 0) {
-                    panel.setBackground(Color.decode("#261300"));
+                    button.setBackground(Color.decode("#261300"));
                 } else {
-                    panel.setBackground(Color.decode("#FFFFEC"));
+                    button.setBackground(Color.decode("#FFFFEC"));
                 }
-                chessboard.add(panel);
+                chessboard.add(button);
             }
         }
 

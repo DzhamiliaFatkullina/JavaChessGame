@@ -3,7 +3,7 @@ package pieces;
 import players.PlayerType;
 
 public class Knight extends Piece{
-    Knight(PlayerType playerType){
+    public Knight(PlayerType playerType){
         super(PieceType.Knight, playerType);
     }
 
