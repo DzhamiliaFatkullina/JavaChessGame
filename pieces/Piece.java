@@ -1,6 +1,9 @@
 package pieces;
 import players.PlayerType;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+
 public abstract class Piece {
     private Coordinate currentCoordinate;
     private Coordinate newCoordinate;
@@ -13,4 +16,14 @@ public abstract class Piece {
     }
 
     public abstract boolean isValidMove(Coordinate currentCoordinate, Coordinate newCoordinate);
+
+    public BufferedImage getImage(String imagePath){
+        BufferedImage image = null;
+        try{
+            image = ImageIO.read(getClass().getResourceAsStream(imagePath + ".png"));
+        } catch (Exception e){
+            e.getMessage();
+        }
+        return image;
+    }
 }
