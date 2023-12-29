@@ -24,8 +24,9 @@ public abstract class Piece {
         return playerType;
     }
     public abstract boolean isValidMove(Square initialSquare, Square finalSquare);
+    public abstract boolean isCaptureMove(Square initialSquare, Square finalSquare);
 
-    public boolean isMoveWithoutObstacle(Square initialSquare, Square finalSquare){
-        return true;
+    boolean isMoveWithoutObstacle(Square initialSquare, Square finalSquare){
+        return true; //TODO write function
     }
 }

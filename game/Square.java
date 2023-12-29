@@ -24,10 +24,13 @@ public class Square {
         return piece;
     }
     public boolean isOccupied(){
-        if (piece == null) return false;
-        return true;
+        return piece != null;
     }
-
+    public boolean equals(Square square) {
+        if (square.getCoordinate().equals(coordinate))
+            return true;
+        return false;
+    }
     public void setPiece(Piece piece) {
         this.piece = piece;
     }

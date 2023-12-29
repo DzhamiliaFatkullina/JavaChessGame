@@ -3,10 +3,6 @@ package pieces;
 import game.Square;
 import players.PlayerType;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Objects;
 
 public class Knight extends Piece{
     private PlayerType playerType;
@@ -20,6 +16,11 @@ public class Knight extends Piece{
                 Math.abs(finalSquare.getCoordinate().getX() - initialSquare.getCoordinate().getX()) == 2)
                 || (Math.abs(finalSquare.getCoordinate().getY() - initialSquare.getCoordinate().getY()) == 2 &&
                 Math.abs(finalSquare.getCoordinate().getX() - initialSquare.getCoordinate().getX()) == 1);
+    }
+    @Override
+    public boolean isCaptureMove(Square initialSquare, Square finalSquare) {
+        return isValidMove(initialSquare, finalSquare) && finalSquare.isOccupied() && finalSquare.getPiece().getPlayerType() != initialSquare.getPiece()
+                .getPlayerType();
     }
 
 }
