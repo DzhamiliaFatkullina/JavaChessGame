@@ -16,7 +16,10 @@ public class Knight extends Piece{
 
     @Override
     public boolean isValidMove(Square initialSquare, Square finalSquare) {
-        return false;
+        return (Math.abs(finalSquare.getCoordinate().getY() - initialSquare.getCoordinate().getY()) == 1 &&
+                Math.abs(finalSquare.getCoordinate().getX() - initialSquare.getCoordinate().getX()) == 2)
+                || (Math.abs(finalSquare.getCoordinate().getY() - initialSquare.getCoordinate().getY()) == 2 &&
+                Math.abs(finalSquare.getCoordinate().getX() - initialSquare.getCoordinate().getX()) == 1);
     }
 
 }
