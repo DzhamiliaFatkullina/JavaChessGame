@@ -4,9 +4,10 @@ import game.Square;
 import players.PlayerType;
 
 
-public class Knight extends Piece{
+public class Knight extends Piece {
     private PlayerType playerType;
-    public Knight(PlayerType playerType){
+
+    public Knight(PlayerType playerType) {
         super(PieceType.Knight, playerType);
     }
 
@@ -17,10 +18,12 @@ public class Knight extends Piece{
                 || (Math.abs(finalSquare.getCoordinate().getY() - initialSquare.getCoordinate().getY()) == 2 &&
                 Math.abs(finalSquare.getCoordinate().getX() - initialSquare.getCoordinate().getX()) == 1);
     }
+
     @Override
     public boolean isCaptureMove(Square initialSquare, Square finalSquare) {
-        return isValidMove(initialSquare, finalSquare) && finalSquare.isOccupied() && finalSquare.getPiece().getPlayerType() != initialSquare.getPiece()
-                .getPlayerType();
+        return isValidMove(initialSquare, finalSquare) && finalSquare.isOccupied() &&
+                finalSquare.getPiece().getPlayerType() != initialSquare.getPiece()
+                        .getPlayerType();
     }
 
 }

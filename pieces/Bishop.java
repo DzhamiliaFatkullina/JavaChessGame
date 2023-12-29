@@ -8,9 +8,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class Bishop extends Piece{
+public class Bishop extends Piece {
     private PlayerType playerType;
-    public Bishop(PlayerType playerType){
+
+    public Bishop(PlayerType playerType) {
         super(PieceType.Bishop, playerType);
     }
 
@@ -24,10 +25,12 @@ public class Bishop extends Piece{
 
                 && isMoveWithoutObstacle(initialSquare, finalSquare);
     }
+
     @Override
     public boolean isCaptureMove(Square initialSquare, Square finalSquare) {
-        return isValidMove(initialSquare, finalSquare) && finalSquare.isOccupied() && finalSquare.getPiece().getPlayerType() != initialSquare.getPiece()
-                .getPlayerType();
+        return isValidMove(initialSquare, finalSquare) && finalSquare.isOccupied() &&
+                finalSquare.getPiece().getPlayerType() != initialSquare.getPiece()
+                        .getPlayerType();
     }
 
 }

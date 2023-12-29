@@ -1,6 +1,9 @@
-# JavaChessGame
-Chess game writen in Java
+# Chess Game with GUI written in Java
 
-## Subheader
+This is a Chess game meant to be played by two players
 
-some more text
+### How Game GUI looks
+
+
+This is the first game I wrote to test my skills in basic OOP consepts.
+

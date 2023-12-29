@@ -10,7 +10,7 @@ public enum PieceType {
 
     private String value;
 
-    PieceType(String value){
+    PieceType(String value) {
         this.value = value;
     }
 

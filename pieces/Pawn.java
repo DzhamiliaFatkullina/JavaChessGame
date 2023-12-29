@@ -4,9 +4,10 @@ import game.Square;
 import players.PlayerType;
 
 public class Pawn extends Piece {
-    public Pawn(PlayerType playerType){
+    public Pawn(PlayerType playerType) {
         super(PieceType.Pawn, playerType);
     }
+
     @Override
     public boolean isValidMove(Square initialSquare, Square finalSquare) {
         if (isFirstMove(initialSquare, finalSquare) || isCaptureMove(initialSquare, finalSquare) ||
@@ -16,7 +17,7 @@ public class Pawn extends Piece {
         return false;
     }
 
-    private boolean isFirstMove(Square initialSquare, Square finalSquare){
+    private boolean isFirstMove(Square initialSquare, Square finalSquare) {
         return (this.getPlayerType() == PlayerType.WHITE && initialSquare.getCoordinate().getY() == 6 &&
                 (finalSquare.getCoordinate().getX() == initialSquare.getCoordinate().getX()
                         && finalSquare.getCoordinate().getY() == initialSquare.getCoordinate().getY() - 2)
@@ -28,7 +29,7 @@ public class Pawn extends Piece {
                 && isMoveWithoutObstacle(initialSquare, finalSquare));
     }
 
-    public boolean isCaptureMove(Square initialSquare, Square finalSquare){
+    public boolean isCaptureMove(Square initialSquare, Square finalSquare) {
         return (this.getPlayerType() == PlayerType.WHITE &&
                 ((finalSquare.getCoordinate().getX() == initialSquare.getCoordinate().getX() + 1 ||
                         finalSquare.getCoordinate().getX() == initialSquare.getCoordinate().getX() - 1)
@@ -42,12 +43,12 @@ public class Pawn extends Piece {
                 && (finalSquare.isOccupied() && finalSquare.getPiece().getPlayerType() == PlayerType.WHITE));
     }
 
-    private boolean isRegularMove(Square initialSquare, Square finalSquare){
-          return (this.getPlayerType() == PlayerType.WHITE &&
-                  (finalSquare.getCoordinate().getX() == initialSquare.getCoordinate().getX()
-                          && finalSquare.getCoordinate().getY() == initialSquare.getCoordinate().getY() - 1)
-                  && isMoveWithoutObstacle(initialSquare, finalSquare))
-                  || (this.getPlayerType() == PlayerType.BLACK &&
+    private boolean isRegularMove(Square initialSquare, Square finalSquare) {
+        return (this.getPlayerType() == PlayerType.WHITE &&
+                (finalSquare.getCoordinate().getX() == initialSquare.getCoordinate().getX()
+                        && finalSquare.getCoordinate().getY() == initialSquare.getCoordinate().getY() - 1)
+                && isMoveWithoutObstacle(initialSquare, finalSquare))
+                || (this.getPlayerType() == PlayerType.BLACK &&
                 (finalSquare.getCoordinate().getX() == initialSquare.getCoordinate().getX()
                         && finalSquare.getCoordinate().getY() == initialSquare.getCoordinate().getY() + 1)
                 && isMoveWithoutObstacle(initialSquare, finalSquare));

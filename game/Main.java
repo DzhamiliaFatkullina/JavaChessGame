@@ -6,12 +6,10 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
@@ -57,7 +55,7 @@ public class Main {
     }
 
     static class MyActionListener implements ActionListener {
-        private void update(){
+        private void update() {
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
                     JButton button = getButtons()[j][i];
@@ -84,6 +82,7 @@ public class Main {
                 }
             }
         }
+
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton button = (JButton) e.getSource();
@@ -94,21 +93,20 @@ public class Main {
 
             boolean boardUpdated = false;
 
-            if (previouslySelected != null){
+            if (previouslySelected != null) {
                 Coordinate previouslySelectedCoordinate =
                         new Coordinate(previouslySelected.getLocation(buttonLocation).x / 100,
-                        previouslySelected.getLocation(buttonLocation).y / 100);
+                                previouslySelected.getLocation(buttonLocation).y / 100);
                 boardUpdated = board.update(previouslySelectedCoordinate, newlySelectedCoordinate);
 
-                if(boardUpdated){
+                if (boardUpdated) {
                     previouslySelected = null;
                     update();
-                }
-                else {
+                } else {
                     previouslySelected = null;
                 }
             }
-            if(!boardUpdated){
+            if (!boardUpdated) {
                 previouslySelected = button;
             }
         }
