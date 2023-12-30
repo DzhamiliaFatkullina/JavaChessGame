@@ -3,6 +3,9 @@ package src.pieces;
 import src.game.Square;
 import src.players.PlayerType;
 
+/**
+ * @author Dzhamilia Fatkullina
+ */
 
 public class Knight extends Piece {
     private PlayerType playerType;
@@ -13,10 +16,10 @@ public class Knight extends Piece {
 
     @Override
     public boolean isValidMove(Square initialSquare, Square finalSquare) {
-        return (Math.abs(finalSquare.getCoordinate().getY() - initialSquare.getCoordinate().getY()) == 1 &&
+        return ((Math.abs(finalSquare.getCoordinate().getY() - initialSquare.getCoordinate().getY()) == 1 &&
                 Math.abs(finalSquare.getCoordinate().getX() - initialSquare.getCoordinate().getX()) == 2)
                 || (Math.abs(finalSquare.getCoordinate().getY() - initialSquare.getCoordinate().getY()) == 2 &&
-                Math.abs(finalSquare.getCoordinate().getX() - initialSquare.getCoordinate().getX()) == 1);
+                Math.abs(finalSquare.getCoordinate().getX() - initialSquare.getCoordinate().getX()) == 1));
     }
 
     @Override

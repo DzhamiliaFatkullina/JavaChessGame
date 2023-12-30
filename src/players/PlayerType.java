@@ -1,5 +1,9 @@
 package src.players;
 
+/**
+ * @author Dzhamilia Fatkullina
+ */
+
 public enum PlayerType {
     BLACK("B"), WHITE("W");
     private String value;

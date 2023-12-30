@@ -1,5 +1,9 @@
 package src.pieces;
 
+/**
+ * @author Dzhamilia Fatkullina
+ */
+
 public enum PieceType {
     King("K"),
     Queen("Q"),

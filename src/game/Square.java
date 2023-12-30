@@ -3,6 +3,16 @@ package src.game;
 import src.pieces.Coordinate;
 import src.pieces.Piece;
 
+/**
+ * <b>Class Square representing a single Square of a Chess Game.</b>
+ * <p>When Constructor is called the Square is initialized with values
+ * for Coordinate and Piece (if Square is empty, piece is set to null).</p>
+ * <p>The class has getters and setters for both piece and coordinate</p>
+ * <p>Boolean methods:</p>
+ * <p> - isOcupied - returns  </p>
+ * @author Dzhamilia Fatkullina
+ */
+
 public class Square {
     private Coordinate coordinate;
     private Piece piece = null;

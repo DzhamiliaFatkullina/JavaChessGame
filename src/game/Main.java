@@ -17,6 +17,19 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * This is a point where game starts.
+ *  <p>Game is active until CheckMate is reached or player closes the window.</p>
+ *  <p>Positions of chess figures and their associated pieces on the board are changed as
+ *  user selects initial and final position of a piece.</p>
+ *  <p>The program won't allow to make a wrong move or make a move when it's the wrong players turn.</p>
+ *  <p></p>
+ *  <p><b>How the program works?</b></p>
+ * <p>Static variable board is created.</p>
+ * <p>Method GameGUI creates Chess frame, adds buttons to it and calls ChessSetUp, which sets up icons of chess pieces
+ * to their initial positions and adds MyActionListener to each button.</p>
+ * @author Dzhamilia Fatkullina
+ */
 
 public class Main {
     static JFrame frame = new JFrame();
@@ -28,14 +41,18 @@ public class Main {
         return allButtons;
     }
 
+
     public static void main(String[] args) {
         GameGUI();
     }
 
+    /**
+     * Creates frame, calls ChessSetUp
+     */
     public static void GameGUI() {
         final int WINDOW_HEIGHT = 800;
         final int WINDOW_WIDTH = 800;
-
+        // make 800*800 frame that stops working when the user closes it, set title, logo, make it centered
         frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -54,7 +71,17 @@ public class Main {
 
     }
 
+    /**
+     * <p>Class that implements interface ActionListener.</p>
+     * <p>This class has two methods - ActionPerformed and update.</p>
+     * ActionPerformed method waits until player has selected two squares and sends information about selected squares to board.update().
+     * If the board updates, GUI displaying the board updates in update() method of this class.
+     */
     static class MyActionListener implements ActionListener {
+
+        /**
+         * This method goes through squares on the board and if the square is occupied adds an Icon of a piece to it.
+         */
         private void update() {
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
@@ -83,6 +110,15 @@ public class Main {
             }
         }
 
+        /**
+         * When button is clicked actionPerformed is invoked.
+         * <p>If there is no previouslySelected button, method assigns current button to be
+         * previouslySelected and waits for another click.</p>
+         * <p>If boolean value of board.update(previouslySelectedCoordinate, newlySelectedCoordinate) is true.
+         * Method calls update() method of MyActionListener to update GUI representation of the board. </p>
+         *
+         * @param e the event to be processed
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton button = (JButton) e.getSource();
@@ -112,6 +148,10 @@ public class Main {
         }
     }
 
+
+    /**
+     * Sets up Chess according to positions on board. Called once in the begging to set up initial positions of pieces.
+     */
     static class ChessSetUp extends JButton {
         ChessSetUp(Square[][] squares) {
             setLayout(new GridBagLayout());

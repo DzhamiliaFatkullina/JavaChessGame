@@ -3,6 +3,10 @@ package src.pieces;
 import src.game.Square;
 import src.players.PlayerType;
 
+/**
+ * @author Dzhamilia Fatkullina
+ */
+
 public class King extends Piece {
     private PlayerType playerType;
 
@@ -17,8 +21,8 @@ public class King extends Piece {
                 //accepted moves
                 && (Math.abs(finalSquare.getCoordinate().getY() - initialSquare.getCoordinate().getY()) != 0 &&
                 Math.abs(finalSquare.getCoordinate().getX() - initialSquare.getCoordinate().getX()) !=
-                        0)); //TODO square.equal() function
-        //doesn't stay on the same square
+                        0));
+                //doesn't stay on the same square
     }
 
     @Override

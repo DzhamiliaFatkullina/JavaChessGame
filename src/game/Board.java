@@ -10,6 +10,10 @@ import src.pieces.Queen;
 import src.pieces.Rook;
 import src.players.PlayerType;
 
+/**
+ * @author Dzhamilia Fatkullina
+ */
+
 public class Board {
     private Square[][] squares = new Square[8][8];
     private PlayerType playerTurn = PlayerType.WHITE;
@@ -82,7 +86,7 @@ public class Board {
             return false;
         }
 
-        if (playerTurn == initialSquare.getPiece().getPlayerType()) {
+        if (playerTurn == initialSquare.getPiece().getPlayerType() && !isCheckMate(playerTurn)) {
             if (initialSquare.getPiece().isCaptureMove(initialSquare, finalSquare)) {
                 capture(initialSquare, finalSquare);
                 changePlayerTurn();
@@ -111,7 +115,9 @@ public class Board {
                 changePlayerTurn();
                 return true;
             }
-        } else {
+        } else if (isCheckMate(playerTurn)){
+
+        } else  {
             System.out.println("Wrong player");
             return false;
         }

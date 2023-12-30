@@ -3,6 +3,10 @@ package src.pieces;
 import src.game.Square;
 import src.players.PlayerType;
 
+/**
+ * @author Dzhamilia Fatkullina
+ */
+
 public class Queen extends Piece {
     private PlayerType playerType;
 
