@@ -5,9 +5,6 @@ To Do:
     - promotion to queen
     - check checker with window opening
     - checkmate checker with window saying "GAME OVER"
-    - JavaDoc
-    - README.md
-    - correctly organize folders and add zip folder with everything
 
 IDEAS for Future Improvements:
     - Show whose move it is in the corner
