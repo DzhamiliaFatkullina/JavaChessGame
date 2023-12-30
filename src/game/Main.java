@@ -56,14 +56,14 @@ public class Main {
         frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.setTitle("Chess src.game for two");
+        frame.setTitle("Chess game for two");
         frame.setLocationRelativeTo(null);
 
         ChessSetUp chessSetUp = new ChessSetUp(board.getSquares());
         frame.add(chessSetUp);
         frame.pack();
 
-        ImageIcon logo = new ImageIcon("game/OIP.jpg");
+        ImageIcon logo = new ImageIcon("src/game/OIP.jpg");
         frame.setIconImage(logo.getImage());
 
         chessSetUp.setVisible(true);

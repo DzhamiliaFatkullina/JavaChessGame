@@ -11,6 +11,9 @@ import src.pieces.Rook;
 import src.players.PlayerType;
 
 /**
+ * This is Board class. When Board object is created it sets pieces on their initial positions.
+ * <p>This class is used to create and make all changes the game supports. Update method is used to check validity of
+ * a move and make a move if it's valid. Other methods are secondary, designed to be used within update method.</p>
  * @author Dzhamilia Fatkullina
  */
 
@@ -24,6 +27,9 @@ public class Board {
         setBlackPieces();
     }
 
+    /**
+     * Creates squares array
+     */
     private void setSquares() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -32,6 +38,9 @@ public class Board {
         }
     }
 
+    /**
+     * Sets white peices to their initial position
+     */
     private void setWhitePieces() {
         squares[0][7].setPiece(new Rook(PlayerType.WHITE));
         squares[1][7].setPiece(new Knight(PlayerType.WHITE));
@@ -46,6 +55,9 @@ public class Board {
         }
     }
 
+    /**
+     * Sets black pieces to their initial position
+     */
     private void setBlackPieces() {
         squares[0][0].setPiece(new Rook(PlayerType.BLACK));
         squares[1][0].setPiece(new Knight(PlayerType.BLACK));
@@ -64,6 +76,15 @@ public class Board {
         return squares;
     }
 
+    /**
+     * if correct player is making a move and player doesn't have checkMate, statement detects type of valid move made,
+     * updates squares array accordingly, and returns true.
+     * if move isn't valid, prints error on terminal, returns false.
+     * @param previouslySelectedCoordinate - Coordinate value of first button clicked,
+     *                                     if there is no previously clicked button, it's value is null.
+     * @param newlySelectedCoordinate - Coordinate value of second button clicked
+     * @return boolean value of whether the board was updated
+     */
     public boolean update(Coordinate previouslySelectedCoordinate, Coordinate newlySelectedCoordinate) {
         /*
         updated the board after valid move is made
@@ -85,7 +106,6 @@ public class Board {
             System.out.println("Initial square equals to final square");
             return false;
         }
-
         if (playerTurn == initialSquare.getPiece().getPlayerType() && !isCheckMate(playerTurn)) {
             if (initialSquare.getPiece().isCaptureMove(initialSquare, finalSquare)) {
                 capture(initialSquare, finalSquare);
@@ -125,6 +145,9 @@ public class Board {
         return false;
     }
 
+    /**
+     * Changes Player turn
+     */
     void changePlayerTurn() {
         if (playerTurn == PlayerType.WHITE) {
             this.playerTurn = PlayerType.BLACK;
